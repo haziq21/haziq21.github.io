@@ -59,30 +59,30 @@
     <section
       bg-teal-900
       text-teal-100
-      p="x-30 y-40"
-      flex
-      space="x-20"
+      py="20 sm:25 md:40"
+      flex="~ col md:row"
+      space="y-12 md:x-20 md:y-0"
       justify-center
       items-center
     >
       <div
         relative
         block
-        w-40
+        min-w-40
         h-40
         bg-teal-500
         rounded-lg
         after="content-none block absolute top-4 right-4 w-full h-full border-2 border-solid border-teal-600 rounded-lg"
       ></div>
-      <h1 text="5xl right" font-bold>
+      <h1 text="3xl sm:4xl md:5xl center md:right" font="semibold md:bold">
         Hi, I&rsquo;m <span text-teal-400>Haziq</span>,<br />and I love
         <span>learning</span>
       </h1>
     </section>
 
     <!-- Projects section -->
-    <section bg-amber-50 p="x-20 t-15 b-25" class="@container">
-      <h2 mb-6 text="5xl amber-200 stroke-1 stroke-amber-600">Projects</h2>
+    <section bg-amber-50 p="x-10 md:x-20 t-15 b-25" class="@container">
+      <h2 mb-6 text="4xl md:5xl gray-700">Projects</h2>
       <p max-w-prose mb-18>
         I&rsquo;m passionate about programming and the wider field of computer
         science, and so I&rsquo;ve worked on some projects over the years. Here
@@ -91,28 +91,32 @@
 
       <ul
         x-data="projects"
-        px-5
+        px="0 md:5"
         mx-auto
         max-w-280
         flex="~ col @4xl:row"
-        space-y="4 @4xl:0"
+        items="center @lg:start"
         justify="@4xl:between"
         list-none
       >
         <template x-for="project in projects">
-          <li max-w="180 @4xl:70" flex="~ row @4xl:col">
+          <li
+            max-w="100 @lg:180 @4xl:70"
+            flex="~ col @lg:row @4xl:col"
+            mb="14 @4xl:0"
+          >
             <!-- Image placeholder -->
             <div
               aspect="[3/2]"
               min-w="50 @4xl:70"
-              m="r-8 @4xl:r-0"
+              m="@lg:r-8 @4xl:r-0"
               bg-amber-900
               rounded-lg
             ></div>
 
-            <div pt="2 @4xl:4">
+            <div pt="4 @lg:2 @4xl:4">
               <!-- Project details -->
-              <div flex items-center p="@4xl:x-4" mb-5>
+              <div flex items-center px="4 @lg:0 @4xl:4" mb-5>
                 <span x-text="project.name" font-semibold text-xl mr-3></span>
                 <div bg-gray-400 w-1 h-1 rounded-full mr-3></div>
                 <span
@@ -138,7 +142,7 @@
               </div>
 
               <!-- Project description -->
-              <p x-html="project.description" p="@4xl:x-3" text-sm></p>
+              <p x-html="project.description" px="3 @lg:0 @4xl:3" text-sm></p>
             </div>
           </li>
         </template>
