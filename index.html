@@ -175,12 +175,81 @@
     </section>
 
     <!-- Service section -->
-    <section bg-teal-900 text-gray-50 p="x-10 md:x-20 t-15 b-25">
+    <section
+      bg-teal-900
+      text-gray-50
+      p="x-10 md:x-20 t-15 b-25"
+      class="@container"
+    >
       <h2 mb-6 text="4xl md:5xl amber-100">Service</h2>
-      <p max-w-prose>
-        Apart from competitions, I&rsquo;ve also managed to use my skills to
-        give back to the community.
-      </p>
+      <div flex="~ col lg:row">
+        <div m="b-10 lg:b-0 lg:r-15">
+          <p max-w-prose mb-4>
+            Apart from competitions, I&rsquo;ve also managed to use my skills to
+            give back to the community.
+          </p>
+          <p max-w-prose mb-4>
+            I was the lead instructor and a member of the executive committee of
+            Python in Five, a 5-hour long beginners&rsquo; Python workshop my
+            class conducted as our service-learning project. Python in Five ran
+            a total of five 5-hour sessions in March 2023, and saw a total of
+            almost 70 students aged 10 - 13 years old.
+          </p>
+          <p max-w-prose mb-4>
+            My role included designing the workshop&rsquo;s curriculum and
+            teaching in three of the five sessions we conducted. The entire
+            project took almost five months to complete, and I&rsquo;ve learned
+            a lot from it.
+          </p>
+        </div>
+
+        <!-- Image gallery -->
+        <div
+          grid
+          grid-cols="2 sm:4 lg:2"
+          gap-4
+          max-w="lg:85"
+          h-min
+          mx-auto
+          px="5 lg:0"
+        >
+          <img
+            src="/assets/pi5-dry-run.jpg"
+            alt="Python in Five's dry run class"
+            object-cover
+            col-span-2
+            aspect="[2/1]"
+            bg-teal-700
+            rounded-lg
+            overflow-hidden
+            shadow-lg
+          />
+
+          <img
+            src="/assets/facilitating.jpg"
+            alt="Haziq helping a student"
+            h-full
+            object-cover
+            aspect-square
+            bg-teal-700
+            rounded-lg
+            overflow-hidden
+            shadow-lg
+          />
+
+          <img
+            src="/assets/teaching.jpg"
+            alt="Haziq teaching a class"
+            h-full
+            object-cover
+            aspect-square
+            bg-teal-700
+            rounded-lg
+            overflow-hidden
+            shadow-lg
+          />
+        </div>
+      </div>
     </section>
 
     <!-- Leadership section -->
