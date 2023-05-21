@@ -48,7 +48,6 @@
 [m~="b-10"]{margin-bottom:2.5rem;}
 [mb-18=""]{margin-bottom:4.5rem;}
 [mb-25=""]{margin-bottom:6.25rem;}
-[mb-4=""]{margin-bottom:1rem;}
 [mb-5=""]{margin-bottom:1.25rem;}
 [mb~="\31 4"]{margin-bottom:3.5rem;}
 [mr-3=""]{margin-right:0.75rem;}
@@ -167,9 +166,9 @@
 .object-cover,
 [object-cover=""]{object-fit:cover;}
 [p~="x-0"]{padding-left:0;padding-right:0;}
-[p~="x-10"],
-[px~="\31 0"]{padding-left:2.5rem;padding-right:2.5rem;}
 [p~="x-2"]{padding-left:0.5rem;padding-right:0.5rem;}
+[p~="x-6"],
+[px~="\36 "]{padding-left:1.5rem;padding-right:1.5rem;}
 [p~="y-1"]{padding-top:0.25rem;padding-bottom:0.25rem;}
 [p~="y-10"]{padding-top:2.5rem;padding-bottom:2.5rem;}
 [p~="y-45"]{padding-top:11.25rem;padding-bottom:11.25rem;}

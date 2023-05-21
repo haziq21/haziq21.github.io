@@ -48,7 +48,67 @@
         },
       ];
 
+      const competitions = [
+        {
+          name: "National Olympiad in\nInformatics",
+          award: "Participation",
+          slug: "noi-2023",
+          timestamp: "Feb 2023",
+        },
+        {
+          name: "Perse Coding Team Challenge\n(Round 1)",
+          award: "Distinction, best in school",
+          slug: "pctc-2023",
+          timestamp: "Jan 2023",
+        },
+        {
+          name: "Computational and Algorithmic\nThinking",
+          award: "High distinction",
+          slug: "cat-2022",
+          timestamp: "Nov 2022",
+        },
+        {
+          name: "Australian Informatics\nOlympiad",
+          award: "Silver",
+          slug: "aio-2023",
+        },
+        {
+          name: "Singapore International Mathematical\nChallenge 2.0",
+          award: "High distinction",
+          slug: "simc2.0",
+        },
+        {
+          name: "Singapore Mathematics\nProject Festival",
+          award: "Bronze",
+          slug: "smpf",
+          timestamp: "Mar 2022",
+        },
+        {
+          name: "Perse Coding Team\nChallenge",
+          award: "Distinction",
+          slug: "pctc-2022",
+        },
+        {
+          name: "National Olympiad in\nInformatics",
+          award: "Silver",
+          slug: "noi-2022",
+        },
+        {
+          name: "East Zone A*STAR\nScience Fair",
+          award: "Bronze",
+          slug: "astar-sci",
+          timestamp: "Jul 2021",
+        },
+        {
+          name: "Computational and Algorithmic\nThinking",
+          award: "Distinction",
+          slug: "cat-2021",
+          timestamp: "Mar 2021",
+        },
+      ];
+
       document.addEventListener("alpine:init", () => {
+        Alpine.data("competitions", () => competitions);
         Alpine.data("projects", () => projects);
       });
     </script>
@@ -87,7 +147,7 @@
     </section>
 
     <!-- Learning section -->
-    <section relative bg-amber-50 p="x-10 md:x-20 y-10">
+    <section relative bg-amber-50 p="x-6 md:x-20 y-10">
       <h2 mb-6 text="4xl md:5xl teal-900">Learning</h2>
       <p max-w-prose>
         I first learned programming in 2017 during a holiday program, where I
@@ -96,7 +156,7 @@
     </section>
 
     <!-- Projects section -->
-    <section bg-teal-900 text-gray-50 p="x-10 md:x-20 t-15" class="@container">
+    <section bg-teal-900 text-gray-50 p="x-6 md:x-20 t-15" class="@container">
       <h2 mb-6 text="4xl md:5xl amber-100">Projects</h2>
       <p max-w-prose mb-18>
         I&rsquo;m passionate about programming and the wider field of computer
@@ -166,36 +226,119 @@
 
     <!-- Competitions section -->
     <section bg-amber-50 pt-15>
-      <h2 px="10 md:20" mb-6 text="4xl md:5xl teal-900">Competitions</h2>
-      <p max-w-prose px="10 md:20" mb-18>
+      <h2 px="6 md:20" mb-6 text="4xl md:5xl teal-900">Competitions</h2>
+      <p max-w-prose px="6 md:20">
         I&rsquo;ve participated in numerous competitions. Here are some of the
         awards I&rsquo;ve achieved (most recent on the left).
       </p>
-      <div overflow-scroll></div>
+
+      <ul
+        x-data="competitions"
+        relative
+        z-0
+        flex
+        list-none
+        p="l-20 md:l-35 y-45"
+        overflow="x-scroll y-visible"
+      >
+        <template x-for="(competition, i) in competitions">
+          <li relative flex bg-amber-400 min-w-50 h-1>
+            <!-- Timestamp -->
+            <template x-if="competition.timestamp">
+              <div
+                x-text="competition.timestamp"
+                absolute
+                left-0
+                translate-x="-1/2"
+                p="x-2 y-1"
+                self-center
+                bg-amber-400
+                rounded-md
+                text-xs
+                font-semibold
+                tracking-wide
+                uppercase
+              ></div>
+            </template>
+
+            <!-- Branch -->
+            <div
+              absolute
+              right="1/2"
+              translate-x="1/2"
+              w-1
+              h-5
+              rounded-md
+              bg-amber-400
+              :class="i % 2 || 'self-end'"
+            >
+              <div
+                class="group"
+                absolute
+                flex
+                items-center
+                :class="i % 2 ? '-bottom-15 flex-col-reverse' : '-top-15 flex-col'"
+                w-max
+                translate-x="-1/2"
+              >
+                <!-- Competition description -->
+                <p>
+                  <span
+                    x-html="competition.name.replaceAll('\n', '<br/>')"
+                    font-semibold
+                  ></span>
+                  <span
+                    inline-block
+                    bg-gray-400
+                    w-1
+                    h-1
+                    m="b-1 x-1"
+                    rounded-full
+                  ></span>
+                  <span x-text="competition.award" text-gray-700></span>
+                </p>
+
+                <!-- Certificate -->
+                <div
+                  hidden
+                  absolute
+                  :class="i % 2 ? 'bottom-15' : 'top-15'"
+                  group-hover="block"
+                  rounded-md
+                  border="solid 6 gray-800"
+                  shadow-md
+                  w-fit
+                  z-10
+                >
+                  <!-- Image placeholder -->
+                  <div w-40 h-30 bg-gray-600></div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </template>
+
+        <div relative flex bg-amber-400 min-w-50 h-1></div>
+      </ul>
     </section>
 
     <!-- Service section -->
-    <section
-      bg-teal-900
-      text-gray-50
-      p="x-10 md:x-20 t-15 b-25"
-      class="@container"
-    >
+    <section bg-teal-900 text-gray-50 p="x-6 md:x-20 t-15 b-25">
       <h2 mb-6 text="4xl md:5xl amber-100">Service</h2>
       <div flex="~ col lg:row">
         <div m="b-10 lg:b-0 lg:r-15">
-          <p max-w-prose mb-4>
+          <p max-w-prose mb-6>
             Apart from competitions, I&rsquo;ve also managed to use my skills to
             give back to the community.
           </p>
-          <p max-w-prose mb-4>
+          <p max-w-prose mb-6>
             I was the lead instructor and a member of the executive committee of
             Python in Five, a 5-hour long beginners&rsquo; Python workshop my
             class conducted as our service-learning project. Python in Five ran
             a total of five 5-hour sessions in March 2023, and saw a total of
             almost 70 students aged 10 - 13 years old.
           </p>
-          <p max-w-prose mb-4>
+          <p max-w-prose mb-6>
             My role included designing the workshop&rsquo;s curriculum and
             teaching in three of the five sessions we conducted. The entire
             project took almost five months to complete, and I&rsquo;ve learned
@@ -253,7 +396,7 @@
     </section>
 
     <!-- Leadership section -->
-    <section bg-amber-50 p="x-10 md:x-20 t-15 b-25">
+    <section bg-amber-50 p="x-6 md:x-20 t-15 b-25">
       <h2 mb-6 text="4xl md:5xl teal-900">Leadership</h2>
       <p max-w-prose>
         As a student of the School of Science and Technology, Singapore (2020 -
@@ -263,12 +406,13 @@
     </section>
 
     <!-- Footer section -->
-    <section bg-teal-900 text-gray-50 p="x-10 md:x-20 t-10 b-25">
+    <section bg-teal-900 text-gray-50 p="x-6 md:x-20 t-10 b-6">
       <h2 mb-3 text="2xl md:3xl">Thanks for visiting!</h2>
-      <p>
+      <p mb-25>
         Find me on
         <a href="#" text-blue-300 no-underline underline="hover:~">GitHub</a>.
       </p>
+      <p>© Haziq Hairil 2023</p>
     </section>
   </body>
 </html>
