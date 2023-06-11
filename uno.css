@@ -55,9 +55,9 @@
 .me{margin-inline-end:1rem;}
 .mr-auto,
 [mr-auto=""]{margin-right:auto;}
-[m~="b-10"]{margin-bottom:2.5rem;}
-[m~="b-8"],
-[mb-8=""]{margin-bottom:2rem;}
+[m~="b-10"],
+[mb-10=""]{margin-bottom:2.5rem;}
+[m~="b-8"]{margin-bottom:2rem;}
 [m~="r-2"]{margin-right:0.5rem;}
 [m~="t-0\.5"]{margin-top:0.125rem;}
 [mb-18=""]{margin-bottom:4.5rem;}
@@ -306,6 +306,7 @@
 [m~="lg\:r-15"]{margin-right:3.75rem;}
 [max-w~="lg\:85"]{max-width:21.25rem;}
 [flex~="lg\:row"]{flex-direction:row;}
+[items~="lg\:center"]{align-items:center;}
 .lg\:b-0{border-width:0;}
 [px~="lg\:0"]{padding-left:0;padding-right:0;}
 }
