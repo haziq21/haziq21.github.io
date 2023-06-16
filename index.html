@@ -48,64 +48,79 @@
         },
       ];
 
-      const competitions = [
-        {
-          name: "National Olympiad in\nInformatics",
-          award: "Participation",
-          slug: "noi-2023",
-          timestamp: "Feb 2023",
-        },
-        {
-          name: "Perse Coding Team Challenge\n(Round 1)",
-          award: "Distinction, best in school",
-          slug: "pctc-2023",
-          timestamp: "Jan 2023",
-        },
-        {
-          name: "Computational and Algorithmic\nThinking",
-          award: "High distinction",
-          slug: "cat-2022",
-          timestamp: "Nov 2022",
-        },
-        {
-          name: "Australian Informatics\nOlympiad",
-          award: "Silver",
-          slug: "aio-2023",
-        },
-        {
-          name: "Singapore International Mathematical\nChallenge 2.0",
-          award: "High distinction",
-          slug: "simc2.0",
-        },
-        {
-          name: "Singapore Mathematics\nProject Festival",
-          award: "Bronze",
-          slug: "smpf",
-          timestamp: "Mar 2022",
-        },
-        {
-          name: "Perse Coding Team\nChallenge",
-          award: "Distinction",
-          slug: "pctc-2022",
-        },
-        {
-          name: "National Olympiad in\nInformatics",
-          award: "Silver",
-          slug: "noi-2022",
-        },
-        {
-          name: "East Zone A*STAR\nScience Fair",
-          award: "Bronze",
-          slug: "astar-sci",
-          timestamp: "Jul 2021",
-        },
-        {
-          name: "Computational and Algorithmic\nThinking",
-          award: "Distinction",
-          slug: "cat-2021",
-          timestamp: "Mar 2021",
-        },
-      ];
+      const competitions = {
+        "Mar 2023": [
+          {
+            name: "International Mathematical Modelling\nChallenge",
+            award: "Commendation",
+            slug: "23-03-immc",
+          },
+          {
+            name: "Perse Coding Team\nChallenge",
+            award: "Distinction, best in school",
+            slug: "23-03-pctc",
+          },
+        ],
+        "Feb 2023": [
+          {
+            name: "National Olympiad in\nInformatics",
+            award: "Participation",
+            slug: "23-02-noi",
+          },
+        ],
+        "Nov 2022": [
+          {
+            name: "Singapore International Mathematical\nChallenge 2.0",
+            award: "High distinction",
+            slug: "22-11-simc",
+          },
+        ],
+        "Aug 2022": [
+          {
+            name: "Australian Informatics\nOlympiad",
+            award: "Silver",
+            slug: "22-08-aio",
+          },
+        ],
+        "May 2022": [
+          {
+            name: "Computational and Algorithmic\nThinking",
+            award: "High distinction",
+            slug: "22-05-cat",
+          },
+        ],
+        "Mar 2022": [
+          {
+            name: "National Olympiad in\nInformatics",
+            award: "Silver",
+            slug: "22-03-noi",
+          },
+          {
+            name: "Perse Coding Team\nChallenge",
+            award: "Distinction",
+            slug: "22-03-pctc",
+          },
+          {
+            name: "Singapore Mathematics\nProject Festival",
+            award: "Bronze",
+            slug: "22-03-smpf",
+          },
+        ],
+        "Jul 2021": [
+          {
+            name: "East Zone A*STAR\nScience Fair",
+            award: "Bronze",
+            slug: "21-07-astar-science-fair",
+          },
+        ],
+        "Mar 2021": [
+          {
+            name: "Computational and Algorithmic\nThinking",
+            award: "Distinction",
+            slug: "21-03-cat",
+          },
+        ],
+      };
 
       document.addEventListener("alpine:init", () => {
         Alpine.data("competitions", () => competitions);
@@ -242,94 +257,56 @@
         awards I&rsquo;ve achieved (most recent on the left).
       </p>
 
-      <ul
+      <div
         x-data="competitions"
-        relative
-        z-0
         flex
-        list-none
-        p="l-20 md:l-35 y-45"
-        overflow="x-scroll y-visible"
+        items-start
+        p="l-20 md:l-35 y-20"
+        overflow-x-scroll
       >
-        <template x-for="(competition, i) in competitions">
-          <li relative flex bg-amber-400 min-w-50 h-1>
-            <!-- Timestamp -->
-            <template x-if="competition.timestamp">
-              <div
-                x-text="competition.timestamp"
-                absolute
-                left-0
-                translate-x="-1/2"
-                p="x-2 y-1"
-                self-center
-                bg-amber-400
-                rounded-md
-                text-xs
-                font-semibold
-                tracking-wide
-                uppercase
-              ></div>
-            </template>
-
-            <!-- Branch -->
+        <div min-w-5 h-10 rounded-l-md bg-amber-300></div>
+        <template x-for="(comps, date) in competitions">
+          <div>
             <div
-              absolute
-              right="1/2"
-              translate-x="1/2"
-              w-1
-              h-5
-              rounded-md
-              bg-amber-400
-              :class="i % 2 || 'self-end'"
-            >
-              <div
-                class="group"
-                absolute
-                flex
-                items-center
-                :class="i % 2 ? '-bottom-15 flex-col-reverse' : '-top-15 flex-col'"
-                w-max
-                translate-x="-1/2"
-              >
-                <!-- Competition description -->
-                <p>
-                  <span
-                    x-html="competition.name.replaceAll('\n', '<br/>')"
-                    font-semibold
-                  ></span>
-                  <span
-                    inline-block
-                    bg-gray-400
-                    w-1
-                    h-1
-                    m="b-1 x-1"
-                    rounded-full
-                  ></span>
-                  <span x-text="competition.award" text-gray-700></span>
-                </p>
-
-                <!-- Certificate -->
-                <div
-                  hidden
-                  absolute
-                  :class="i % 2 ? 'bottom-15' : 'top-15'"
-                  group-hover="block"
-                  rounded-md
-                  border="solid 6 gray-800"
-                  shadow-md
-                  w-fit
-                  z-10
-                >
-                  <!-- Image placeholder -->
-                  <div w-40 h-30 bg-gray-600></div>
-                </div>
-              </div>
-            </div>
-          </li>
+              x-text="date"
+              w-full
+              py-3
+              mb-8
+              bg-amber-300
+              text="center xs"
+              font-semibold
+              tracking-wide
+              uppercase
+            ></div>
+            <ul list-none p-0 flex="~ col" items-center gap-8>
+              <template x-for="(comp, i) in comps">
+                <li w-max text-center px-10>
+                  <a
+                    :href="`/certificates/${comp.slug}.pdf`"
+                    block
+                    no-underline
+                    text-inherit
+                  >
+                    <span
+                      x-html="comp.name.replaceAll('\n', '<br/>')"
+                      font-semibold
+                    ></span>
+                    <span
+                      inline-block
+                      bg-gray-400
+                      w-1
+                      h-1
+                      m="b-1 x-1"
+                      rounded-full
+                    ></span>
+                    <span x-text="comp.award" text-gray-700></span>
+                  </a>
+                </li>
+              </template>
+            </ul>
+          </div>
         </template>
-
-        <div relative flex bg-amber-400 min-w-50 h-1></div>
-      </ul>
+      </div>
     </section>
 
     <!-- Service section -->
