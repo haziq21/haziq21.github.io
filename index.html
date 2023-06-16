@@ -414,33 +414,28 @@
 
         <!-- Image gallery -->
         <div
-          grid
-          grid-cols="2 sm:4 lg:2"
+          grid="~ cols-2 sm:cols-[2fr_1fr_1fr] lg:cols-2"
           gap-4
           max-w="lg:85"
-          h-min
           mx-auto
           px="5 lg:0"
         >
           <img
             src="/assets/pi5-dry-run.jpg"
             alt="Python in Five's dry run class"
-            col-span-2
-            aspect="[2/1]"
+            col-span="2 sm:1 lg:2"
             mosaic-img
           />
 
           <img
             src="/assets/facilitating.jpg"
             alt="Haziq helping a student"
-            aspect-square
             mosaic-img
           />
 
           <img
             src="/assets/teaching.jpg"
             alt="Haziq teaching a class"
-            aspect-square
             mosaic-img
           />
         </div>
