@@ -144,6 +144,13 @@
         Alpine.data("competitions", () => competitions);
         Alpine.data("certificate", () => certificate);
       });
+
+      // Preload all the certificate thumbnails
+      for (const date in competitions) {
+        for (const comp of competitions[date]) {
+          new Image().src = `/certificates/preview/${comp.slug}.jpg`;
+        }
+      }
     </script>
   </head>
 
