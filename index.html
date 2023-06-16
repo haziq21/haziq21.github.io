@@ -137,6 +137,13 @@
           preview.style.left = `${event.clientX + 24}px`;
           preview.style.top = `${Math.round(event.clientY - rect.top)}px`;
         },
+        deviceHasTouch() {
+          return (
+            "ontouchstart" in document.documentElement ||
+            navigator.maxTouchPoints > 0 ||
+            navigator.msMaxTouchPoints > 0
+          );
+        },
       };
 
       document.addEventListener("alpine:init", () => {
@@ -145,10 +152,12 @@
         Alpine.data("certificate", () => certificate);
       });
 
-      // Preload all the certificate thumbnails
-      for (const date in competitions) {
-        for (const comp of competitions[date]) {
-          new Image().src = `/certificates/preview/${comp.slug}.jpg`;
+      // Preload all the certificate thumbnails on devices with cursors
+      if (!certificate.deviceHasTouch()) {
+        for (const date in competitions) {
+          for (const comp of competitions[date]) {
+            new Image().src = `/certificates/preview/${comp.slug}.jpg`;
+          }
         }
       }
     </script>
@@ -332,7 +341,7 @@
             <ul list-none px-10 flex="~ col" items-center gap-8>
               <template x-for="(comp, i) in comps">
                 <li
-                  @mouseenter="setPreview(comp.slug)"
+                  @mouseenter="!deviceHasTouch() && setPreview(comp.slug)"
                   @mouseleave="unsetPreview()"
                   w-max
                   text-center
