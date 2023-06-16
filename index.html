@@ -122,9 +122,27 @@
         ],
       };
 
+      const certificate = {
+        previewSlug: "",
+        previewVisible: false,
+        setPreview(slug) {
+          this.previewSlug = slug;
+          this.previewVisible = true;
+        },
+        unsetPreview() {
+          this.previewVisible = false;
+        },
+        updatePreviewPos(event, preview, el) {
+          const rect = el.getBoundingClientRect();
+          preview.style.left = `${event.clientX + 24}px`;
+          preview.style.top = `${Math.round(event.clientY - rect.top)}px`;
+        },
+      };
+
       document.addEventListener("alpine:init", () => {
-        Alpine.data("competitions", () => competitions);
         Alpine.data("projects", () => projects);
+        Alpine.data("competitions", () => competitions);
+        Alpine.data("certificate", () => certificate);
       });
     </script>
   </head>
@@ -250,12 +268,37 @@
     </section>
 
     <!-- Competitions section -->
-    <section id="competitions" bg-amber-50 pt-15>
+    <section
+      id="competitions"
+      x-data="certificate"
+      @mousemove="updatePreviewPos($event, $refs.preview, $el)"
+      relative
+      bg-amber-50
+      pt-15
+    >
       <h2 px="6 md:20" mb-6 text="4xl md:5xl teal-900">Competitions</h2>
       <p max-w-prose px="6 md:20">
         I&rsquo;ve participated in numerous competitions. Here are some of the
         awards I&rsquo;ve achieved (most recent on the left).
       </p>
+
+      <div
+        x-ref="preview"
+        x-show="previewVisible"
+        absolute
+        p-1
+        bg-gray-700
+        shadow-md
+        rounded-md
+        translate-y="-90%"
+      >
+        <img
+          :src="`/certificates/preview/${previewSlug}.jpg`"
+          max-w-50
+          max-h-45
+          rounded-sm
+        />
+      </div>
 
       <div
         x-data="competitions"
@@ -278,9 +321,15 @@
               tracking-wide
               uppercase
             ></div>
-            <ul list-none p-0 flex="~ col" items-center gap-8>
+
+            <ul list-none px-10 flex="~ col" items-center gap-8>
               <template x-for="(comp, i) in comps">
-                <li w-max text-center px-10>
+                <li
+                  @mouseenter="setPreview(comp.slug)"
+                  @mouseleave="unsetPreview()"
+                  w-max
+                  text-center
+                >
                   <a
                     :href="`/certificates/${comp.slug}.pdf`"
                     block
@@ -306,6 +355,7 @@
             </ul>
           </div>
         </template>
+        <div min-w-15 h-10 bg-amber-300></div>
       </div>
     </section>
 
