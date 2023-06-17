@@ -202,9 +202,8 @@
     <section id="learning" relative bg-amber-50 p="x-6 md:x-20 t-10 b-15">
       <h2 mb-6 text="4xl md:5xl teal-900">Learning</h2>
       <div
-        grid="~ cols-1 lg:cols-[max-content_1fr]"
+        grid="~ cols-[minmax(auto,65ch)] lg:cols-[auto_minmax(max-content,1fr)]"
         gap-10
-        max-w="65ch lg:none"
       >
         <p max-w-prose>
           I first learned programming in 2017 during a holiday program, where I
@@ -218,6 +217,7 @@
           self-center
           grid="~ cols-4"
           h-min
+          px-5
           mx-auto
           gap-y-3
           justify-items-center
