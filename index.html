@@ -471,88 +471,90 @@
       class="@container"
     >
       <h2 mb-6 text="4xl md:5xl amber-100">Service</h2>
-      <div flex="~ col lg:row" items="lg:center">
-        <div m="b-10 lg:b-0 lg:r-15">
-          <p max-w-prose mb-8>
-            Apart from competitions, I&rsquo;ve also managed to use my skills to
-            give back to the community via <strong>Python in Five</strong>, a
-            5-hour beginners&rsquo; Python programming workshop for 10 - 13 year
-            olds, conducted as a service-learning (volunteer) project.
-          </p>
+      <div
+        grid="~ rows-[repeat(5,auto)] lg:rows-[repeat(4,auto)] flow-col"
+        gap-x-15
+      >
+        <p max-w-prose mb-8>
+          Apart from competitions, I&rsquo;ve also managed to use my skills to
+          give back to the community via <strong>Python in Five</strong>, a
+          5-hour beginners&rsquo; Python programming workshop for 10 - 13 year
+          olds, conducted as a service-learning (volunteer) project.
+        </p>
 
-          <!-- Involvement -->
-          <h3
-            w-fit
-            px-2
-            ml="5 @md:10"
-            bg-teal-900
-            font-normal
-            text="teal-500 sm"
-            translate-y="1/2"
-          >
-            My involvement
-          </h3>
-          <dl
-            m="x--4 @md:l-3 b-10"
-            p-6
-            max-w="@md:fit"
-            border="solid 2 teal-700"
-            rounded-md
-          >
-            <dt mb-1 text="xs teal-500" font-semibold uppercase tracking-wider>
-              Position
-            </dt>
-            <dd mb-5>
-              Lead instructor <span text-teal-500>/</span> Executive committee
-              member
-            </dd>
-            <dt mb-1 text="xs teal-500" font-semibold uppercase tracking-wider>
-              Roles
-            </dt>
-            <dd flex items-start pl-3 mb-1>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                stroke="teal-500 2"
-                w-5
-                aspect-square
-                m="t-0.5 r-2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-              </svg>
-              Designing the workshop&rsquo;s curriculum
-            </dd>
-            <dd flex items-start pl-3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                stroke="teal-500 2"
-                w-5
-                aspect-square
-                m="t-0.5 r-2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-              </svg>
-              Teaching in 3 of the 5 sessions conducted
-            </dd>
-          </dl>
+        <!-- Involvement -->
+        <h3
+          w-fit
+          px-2
+          ml="5 @md:10"
+          bg-teal-900
+          font-normal
+          text="teal-500 sm"
+          translate-y="1/2"
+        >
+          My involvement
+        </h3>
+        <dl
+          m="x--4 @md:l-3 b-10"
+          p-6
+          max-w="@md:fit"
+          border="solid 2 teal-700"
+          rounded-md
+        >
+          <dt mb-1 text="xs teal-500" font-semibold uppercase tracking-wider>
+            Position
+          </dt>
+          <dd mb-5>
+            Lead instructor <span text-teal-500>/</span> Executive committee
+            member
+          </dd>
+          <dt mb-1 text="xs teal-500" font-semibold uppercase tracking-wider>
+            Roles
+          </dt>
+          <dd flex items-start pl-3 mb-1>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="teal-500 2"
+              w-5
+              aspect-square
+              m="t-0.5 r-2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
+            Designing the workshop&rsquo;s curriculum
+          </dd>
+          <dd flex items-start pl-3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="teal-500 2"
+              w-5
+              aspect-square
+              m="t-0.5 r-2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
+            Teaching in 3 of the 5 sessions conducted
+          </dd>
+        </dl>
 
-          <p max-w-prose mb-6>
-            <strong>Python in Five</strong> ran five 5-hour sessions in March
-            2023 and saw a total of almost 70 students.
-          </p>
-        </div>
+        <p max-w-prose mb="16 lg:6">
+          <strong>Python in Five</strong> ran five 5-hour sessions in March 2023
+          and saw a total of almost 70 students.
+        </p>
 
         <!-- Image gallery -->
         <div
+          row-span="lg:4"
           grid="~ cols-2 sm:cols-[2fr_1fr_1fr] lg:cols-2"
           gap-4
           max-w="lg:85"
