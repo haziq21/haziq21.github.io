@@ -309,7 +309,7 @@
         translate-y="-100%"
       >
         <img
-          :src="`/certificates/preview/${previewSlug}.jpg`"
+          :src="previewSlug && `/certificates/preview/${previewSlug}.jpg`"
           max-w-50
           max-h-45
           rounded-sm
