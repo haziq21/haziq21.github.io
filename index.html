@@ -124,16 +124,15 @@
 
       const certificate = {
         previewSlug: "",
-        previewVisible: false,
-        setPreview(slug) {
+        setPreview(slug, event, preview, container) {
           this.previewSlug = slug;
-          this.previewVisible = true;
+          this.updatePreviewPos(event, preview, container);
         },
         unsetPreview() {
-          this.previewVisible = false;
+          this.previewSlug = "";
         },
-        updatePreviewPos(event, preview, el) {
-          const rect = el.getBoundingClientRect();
+        updatePreviewPos(event, preview, container) {
+          const rect = container.getBoundingClientRect();
           preview.style.left = `${event.clientX + 8}px`;
           preview.style.top = `${Math.round(event.clientY - rect.top - 8)}px`;
         },
@@ -287,20 +286,21 @@
     <section
       id="competitions"
       x-data="certificate"
-      @mousemove="updatePreviewPos($event, $refs.preview, $el)"
+      x-ref="competitions"
       relative
       bg-amber-50
       pt-15
     >
       <h2 px="6 md:20" mb-6 text="4xl md:5xl teal-900">Competitions</h2>
       <p max-w-prose px="6 md:20">
-        I&rsquo;ve participated in numerous competitions. Here are some of the
-        awards I&rsquo;ve achieved (most recent on the left).
+        I&rsquo;ve participated in numerous competitions, mainly competitive
+        programming and mathematical modelling competitions. Here are some of
+        the awards I&rsquo;ve achieved.
       </p>
 
       <div
         x-ref="preview"
-        x-show="previewVisible"
+        x-show="previewSlug"
         absolute
         p-1
         bg-gray-700
@@ -341,7 +341,8 @@
             <ul list-none px-10 flex="~ col" items-center gap-8>
               <template x-for="(comp, i) in comps">
                 <li
-                  @mouseenter="!deviceHasTouch() && setPreview(comp.slug)"
+                  @mouseenter="!deviceHasTouch() && setPreview(comp.slug, $event, $refs.preview, $refs.competitions)"
+                  @mousemove="updatePreviewPos($event, $refs.preview, $refs.competitions)"
                   @mouseleave="unsetPreview()"
                   w-max
                   text-center
