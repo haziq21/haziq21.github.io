@@ -547,13 +547,13 @@
           </dd>
         </dl>
 
-        <p max-w-prose mb="16 lg:6">
+        <p max-w-prose mb="16 lg:0">
           <strong>Python in Five</strong> ran five 5-hour sessions in March 2023
           and saw a total of almost 70 students.
         </p>
 
         <!-- Image gallery -->
-        <div
+        <figure
           row-span="lg:4"
           grid="~ cols-2 sm:cols-[2fr_1fr_1fr] lg:cols-2"
           gap-4
@@ -561,25 +561,61 @@
           mx-auto
           px="5 lg:0"
         >
-          <img
-            src="/assets/pi5-dry-run.jpg"
-            alt="Python in Five's dry run class"
+          <div
+            class="group"
             col-span="2 sm:1 lg:2"
-            mosaic-img
-          />
+            flex="~ col-reverse sm:col lg:col-reverse"
+            gap-2
+          >
+            <img
+              src="/assets/pi5-dry-run.jpg"
+              alt="Python in Five's dry run class"
+              mosaic-img
+            />
+            <p
+              invisible
+              group-hover:visible
+              text="xs transparent group-hover:teal-300 center"
+              class="transition-all"
+            >
+              Dry-run session with our juniors
+            </p>
+          </div>
 
-          <img
-            src="/assets/facilitating.jpg"
-            alt="Haziq helping a student"
-            mosaic-img
-          />
+          <div class="group">
+            <img
+              src="/assets/facilitating.jpg"
+              alt="Haziq helping a student"
+              mosaic-img
+            />
+            <p
+              invisible
+              group-hover:visible
+              text="xs transparent group-hover:teal-300 center"
+              pt-2
+              class="transition-all"
+            >
+              Me helping a student
+            </p>
+          </div>
 
-          <img
-            src="/assets/teaching.jpg"
-            alt="Haziq teaching a class"
-            mosaic-img
-          />
-        </div>
+          <div class="group">
+            <img
+              src="/assets/teaching.jpg"
+              alt="Haziq teaching a class"
+              mosaic-img
+            />
+            <p
+              invisible
+              group-hover:visible
+              text="xs transparent group-hover:teal-300 center"
+              pt-2
+              class="transition-all"
+            >
+              Me teaching a class
+            </p>
+          </div>
+        </figure>
       </div>
     </section>
 
