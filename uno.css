@@ -99,7 +99,7 @@
 [flex=""],
 [flex~="\~"]{display:flex;}
 [flex~="col"]{flex-direction:column;}
-[translate-y~="-\39 0\%"]{--un-translate-y:-90%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
+[translate-y~="-\31 00\%"]{--un-translate-y:-100%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
 [translate-y~="\31 \/2"]{--un-translate-y:50%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
 .-skew-y-3,
 [before~="-skew-y-3"]::before{--un-skew-y:-3deg;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
@@ -140,8 +140,8 @@
 [rounded-md=""]{border-radius:0.375rem;}
 .rounded-sm,
 [rounded-sm=""]{border-radius:0.125rem;}
-.rounded-l-md,
-[rounded-l-md=""]{border-top-left-radius:0.375rem;border-bottom-left-radius:0.375rem;}
+.rounded-l-full,
+[rounded-l-full=""]{border-top-left-radius:9999px;border-bottom-left-radius:9999px;}
 .border-solid,
 [after~="border-solid"]::after,
 [border~="solid"]{border-style:solid;}
