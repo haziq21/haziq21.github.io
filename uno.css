@@ -324,7 +324,7 @@
 @media (min-width: 1024px){
 [col-span~="lg\:2"]{grid-column:span 2/span 2;}
 [row-span~="lg\:2"]{grid-row:span 2/span 2;}
-[grid~="lg\:cols-\[1fr_max-content\]"]{grid-template-columns:1fr max-content;}
+[grid~="lg\:cols-\[max-content_1fr\]"]{grid-template-columns:max-content 1fr;}
 [grid~="lg\:cols-2"]{grid-template-columns:repeat(2,minmax(0,1fr));}
 [m~="lg\:b-0"]{margin-bottom:0;}
 [m~="lg\:r-15"]{margin-right:3.75rem;}
