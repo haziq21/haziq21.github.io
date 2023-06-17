@@ -134,8 +134,8 @@
         },
         updatePreviewPos(event, preview, el) {
           const rect = el.getBoundingClientRect();
-          preview.style.left = `${event.clientX + 24}px`;
-          preview.style.top = `${Math.round(event.clientY - rect.top)}px`;
+          preview.style.left = `${event.clientX + 8}px`;
+          preview.style.top = `${Math.round(event.clientY - rect.top - 8)}px`;
         },
         deviceHasTouch() {
           return (
@@ -306,7 +306,7 @@
         bg-gray-700
         shadow-md
         rounded-md
-        translate-y="-90%"
+        translate-y="-100%"
       >
         <img
           :src="`/certificates/preview/${previewSlug}.jpg`"
