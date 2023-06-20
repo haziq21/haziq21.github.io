@@ -1,0 +1,169 @@
+---
+import TimelineSegment from "../TimelineSegment.astro";
+---
+
+<section id="timeline" relative bg-amber-50 pt-15>
+    <h2 px="6 md:20" mb-6 text="4xl md:5xl teal-900" font-bold>Competitions</h2>
+    <p max-w-prose px="6 md:20">
+        I&rsquo;ve participated in numerous competitions, mainly competitive
+        programming and mathematical modelling competitions. Here are some of
+        the awards I&rsquo;ve achieved.
+    </p>
+
+    <div id="cert-preview" absolute p-1 bg-gray-700 shadow-md rounded-md hidden>
+        <img id="cert-preview-img" src="" max-w-50 max-h-45 rounded-sm />
+    </div>
+
+    <figure flex items-start p="l-20 md:l-35 y-20" overflow-x-scroll>
+        <div min-w-5 h-10 rounded-l-full bg-amber-300></div>
+        <TimelineSegment
+            date="Mar 2023"
+            competitions={[
+                {
+                    name: "International Mathematical Modelling\nChallenge",
+                    award: "Commendation",
+                    slug: "23-03-immc",
+                },
+                {
+                    name: "Perse Coding Team\nChallenge",
+                    award: "Distinction, best in school",
+                    slug: "23-03-pctc",
+                },
+            ]}
+        />
+        <TimelineSegment
+            date="Feb 2023"
+            competitions={[
+                {
+                    name: "National Olympiad in\nInformatics",
+                    award: "Participation",
+                    slug: "23-02-noi",
+                },
+            ]}
+        />
+        <TimelineSegment
+            date="Nov 2022"
+            competitions={[
+                {
+                    name: "Singapore International Mathematical\nChallenge 2.0",
+                    award: "High distinction",
+                    slug: "22-11-simc",
+                },
+            ]}
+        />
+        <TimelineSegment
+            date="Aug 2022"
+            competitions={[
+                {
+                    name: "Australian Informatics\nOlympiad",
+                    award: "Silver",
+                    slug: "22-08-aio",
+                },
+            ]}
+        />
+        <TimelineSegment
+            date="May 2022"
+            competitions={[
+                {
+                    name: "Computational and Algorithmic\nThinking",
+                    award: "High distinction",
+                    slug: "22-05-cat",
+                },
+            ]}
+        />
+        <TimelineSegment
+            date="Mar 2022"
+            competitions={[
+                {
+                    name: "National Olympiad in\nInformatics",
+                    award: "Silver",
+                    slug: "22-03-noi",
+                },
+                {
+                    name: "Perse Coding Team\nChallenge",
+                    award: "Distinction",
+                    slug: "22-03-pctc",
+                },
+                {
+                    name: "Singapore Mathematics\nProject Festival",
+                    award: "Bronze",
+                    slug: "22-03-smpf",
+                },
+            ]}
+        />
+        <TimelineSegment
+            date="Jul 2021"
+            competitions={[
+                {
+                    name: "East Zone A*STAR\nScience Fair",
+                    award: "Bronze",
+                    slug: "21-07-astar-science-fair",
+                },
+            ]}
+        />
+        <TimelineSegment
+            date="Mar 2021"
+            competitions={[
+                {
+                    name: "Computational and Algorithmic\nThinking",
+                    award: "Distinction",
+                    slug: "21-03-cat",
+                },
+            ]}
+        />
+        <div min-w-15 h-10 bg-amber-300></div>
+    </figure>
+</section>
+
+<script>
+    function deviceHasTouch() {
+        return (
+            "ontouchstart" in document.documentElement ||
+            navigator.maxTouchPoints > 0
+        );
+    }
+
+    function updatePreviewPos(event: MouseEvent) {
+        const rect = document
+            .getElementById("timeline")!
+            .getBoundingClientRect();
+        previewContainer.style.left = `${event.clientX + 8}px`;
+        previewContainer.style.bottom = `${Math.round(
+            rect.bottom - event.clientY + 8
+        )}px`;
+    }
+
+    const handleMousemove = (e: MouseEvent) => updatePreviewPos(e);
+
+    const previewContainer = document.getElementById("cert-preview")!;
+    const previewImg = document.getElementById(
+        "cert-preview-img"
+    )! as HTMLImageElement;
+    const timeline = document.getElementById("timeline")!;
+
+    if (!deviceHasTouch()) {
+        document.querySelectorAll("[data-preview-slug]").forEach((el) => {
+            const src = `/certificates/preview/${(el as HTMLElement).dataset
+                .previewSlug!}.jpg`;
+
+            // Pre-load the images so that they're cached before the user sees it
+            new Image().src = src;
+
+            el.addEventListener("mouseenter", (e) => {
+                // Display the preview
+                previewImg.src = src;
+                previewContainer.removeAttribute("hidden");
+
+                // Update the position of the preview
+                updatePreviewPos(e as MouseEvent);
+            });
+
+            el.addEventListener("mouseleave", () => {
+                // Hide the preview
+                previewContainer.setAttribute("hidden", "");
+            });
+        });
+
+        timeline.addEventListener("mousemove", handleMousemove);
+    }
+</script>

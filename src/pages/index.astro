@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/sections/Navbar.astro";
+import Header from "../components/sections/Header.astro";
+import Learning from "../components/sections/Learning.astro";
+import Projects from "../components/sections/Projects.astro";
+import Competitions from "../components/sections/Competitions.astro";
+import Service from "../components/sections/Service.astro";
+import Leadership from "../components/sections/Leadership.astro";
+import Footer from "../components/sections/Footer.astro";
+import UrlFragmentTarget from "../components/UrlFragmentTarget.astro";
+---
+
+<Layout>
+	<Navbar />
+	<Header />
+	<UrlFragmentTarget id="learning" />
+	<Learning />
+	<UrlFragmentTarget id="projects" />
+	<Projects />
+	<UrlFragmentTarget id="competitions" />
+	<Competitions />
+	<UrlFragmentTarget id="service" />
+	<Service />
+	<UrlFragmentTarget id="leadership" />
+	<Leadership />
+	<Footer />
+</Layout>

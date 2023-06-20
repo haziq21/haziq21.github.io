@@ -1,0 +1,26 @@
+---
+interface Props {
+    src: string;
+    caption: string;
+    wide?: boolean;
+}
+
+const { src, caption, wide = false } = Astro.props;
+---
+
+<figure
+    class="group flex"
+    gap-2
+    flex={wide ? "col-reverse sm:col lg:col-reverse" : "col"}
+    col-span={wide && "2 sm:1 lg:2"}
+>
+    <img src={src} alt="" mosaic-img />
+    <figcaption
+        invisible
+        group-hover:visible
+        text="xs transparent group-hover:teal-300 center"
+        class="transition-all"
+    >
+        {caption}
+    </figcaption>
+</figure>

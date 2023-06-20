@@ -1,0 +1,40 @@
+---
+import ProjectCard from "../ProjectCard.astro";
+---
+
+<section bg-teal-900 text-gray-50 p="x-6 md:x-20 t-15" class="@container">
+    <h2 mb-6 text="4xl md:5xl amber-100" font-bold>Projects</h2>
+    <p max-w-prose mb-18>
+        I&rsquo;m a strong believer of project-based learning, and so I&rsquo;ve
+        worked on some projects over the years. Here are a few of them.
+    </p>
+
+    <ul
+        p="x-0 md:x-5 b-10 @lg:b-25"
+        mx-auto
+        max-w-280
+        flex="~ col @4xl:row"
+        items="center @lg:start"
+        justify="@4xl:between"
+        list-none
+    >
+        <ProjectCard
+            name="Kichn"
+            year="2023"
+            link="https://github.com/haziq21/kichn"
+            description="Kitchen inventory tracker and grocery list app, with barcode scanning, real-time sharing, and access to FairPrice’s product database."
+        />
+        <ProjectCard
+            name="EcoRoute"
+            year="2021"
+            link="https://github.com/haziq21/eco-route"
+            description="Provides bus arrival timings and travel directions using only public transport, encouraging greener choices of transportation."
+        />
+        <ProjectCard
+            name="Racing AI"
+            year="2021"
+            link="https://github.com/haziq21/old-racing-ai"
+            description="Simple self-driving car simulation using unsupervised learning and a genetic algorithm, teaching cars to race around a track."
+        />
+    </ul>
+</section>

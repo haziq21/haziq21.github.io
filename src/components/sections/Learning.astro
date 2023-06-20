@@ -1,0 +1,48 @@
+---
+import Python from "../svg/Python.astro";
+import Javascript from "../svg/Javascript.astro";
+import Typescript from "../svg/Typescript.astro";
+import Rust from "../svg/Rust.astro";
+---
+
+<section relative bg-amber-50 p="x-6 md:x-20 t-10 b-15">
+    <h2 mb-6 text="4xl md:5xl teal-900" font-bold>Learning</h2>
+    <div
+        grid="~ cols-[minmax(auto,65ch)] lg:cols-[auto_minmax(max-content,1fr)]"
+        gap-10
+    >
+        <p max-w-prose>
+            I first learned programming in 2017 during a holiday program, where
+            I created basic websites and web-based games. It ignited my passion
+            for programming, and I continued by teaching myself other
+            programming languages, concepts and constructs through project-based
+            learning.
+        </p>
+
+        <figure
+            row-span="lg:2"
+            self-center
+            grid="~ cols-4"
+            h-min
+            px-5
+            mx-auto
+            gap-y-3
+            justify-items-center
+        >
+            <Python />
+            <Javascript />
+            <Typescript />
+            <Rust />
+
+            <figcaption col-span-4 text="center sm gray-600">
+                Programming languages I&rsquo;m proficient in
+            </figcaption>
+        </figure>
+
+        <p max-w-prose>
+            As a student of the School of Science and Technology, I take
+            Computing+, where we also use Python. Additionally, I have a strong
+            interest in mathematics and its practical applications.
+        </p>
+    </div>
+</section>
