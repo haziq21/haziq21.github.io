@@ -14,7 +14,7 @@ const { src, caption, wide = false } = Astro.props;
     flex={wide ? "col-reverse sm:col lg:col-reverse" : "col"}
     col-span={wide && "2 sm:1 lg:2"}
 >
-    <img src={src} alt="" mosaic-img />
+    <img src={src} alt="" bg-teal-700 rounded-lg shadow-lg />
     <figcaption
         invisible
         group-hover:visible
