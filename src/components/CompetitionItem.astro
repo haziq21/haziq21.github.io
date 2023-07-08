@@ -1,0 +1,44 @@
+---
+interface Props {
+    name: string;
+    award: string;
+    date: string;
+    slug: string;
+}
+
+const { name, award, date, slug } = Astro.props;
+---
+
+<li
+    rounded-lg
+    border="1.5 transparent hover:amber-300"
+    bg="amber-100 hover:amber-200"
+    min-w-max
+>
+    <a
+        href={`/certificates/${slug}.pdf`}
+        target="_blank"
+        grid="~ cols-[auto_auto_1fr] flow-col"
+        items-center
+        p="y-3 x-5"
+    >
+        <img
+            src={`/certificates/preview/${slug}.jpg`}
+            alt=""
+            height="40"
+            h-10
+            mr-4
+            row-span-2
+            border="1 gray-800"
+            rounded-sm
+        />
+        <span col-span-2 font-medium>{name}</span>
+        <span
+            text-gray-700
+            after="inline-block bg-gray-600 w-1 h-1 mb-1 mx-2 rounded-full"
+        >
+            {award}</span
+        >
+        <span text-gray-700>{date}</span>
+    </a>
+</li>
