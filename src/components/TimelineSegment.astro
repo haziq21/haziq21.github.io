@@ -25,12 +25,7 @@ const { date, competitions } = Astro.props;
         {
             competitions.map((c) => (
                 <li data-preview-slug={c.slug} w-max text-center>
-                    <a
-                        href={`/certificates/${c.slug}.pdf`}
-                        block
-                        no-underline
-                        text-inherit
-                    >
+                    <a href={`/certificates/${c.slug}.pdf`} block text-inherit>
                         <span
                             set:html={c.name.replaceAll("\n", "<br/>")}
                             font-semibold
