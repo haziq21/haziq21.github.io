@@ -1,5 +1,6 @@
 ---
 import Signature from "../svg/Signature.astro";
+import NavItem from "../NavItem.astro";
 ---
 
 <div nav-even>
@@ -7,29 +8,26 @@ import Signature from "../svg/Signature.astro";
 </div>
 
 <nav
+    nav-odd
     sticky
     top-0
     z-1
-    nav-odd
     flex
     items-center
     justify-between
     p="x-10 y-3"
-    font-medium
     transition-all
 >
     <a href="#">
         <Signature />
     </a>
 
-    <ul sm:flex hidden gap-5 list-none>
-        <li><a href="#learning" no-underline>Learning</a></li>
-        <li><a href="#projects" no-underline>Projects</a></li>
-        <li>
-            <a href="#competitions" no-underline>Competitions</a>
-        </li>
-        <li><a href="#service" no-underline>Service</a></li>
-        <li><a href="#leadership" no-underline>Leadership</a></li>
+    <ul hidden sm:flex gap-5 list-none>
+        <NavItem name="Learning" />
+        <NavItem name="Projects" />
+        <NavItem name="Competitions" />
+        <NavItem name="Service" />
+        <NavItem name="Leadership" />
     </ul>
 
     <button block sm:hidden bg-transparent border-none p-0 hover:cursor-pointer>
@@ -79,6 +77,16 @@ import Signature from "../svg/Signature.astro";
         }
 
         const navBarOddColor = closestValidSectionIndex % 2 == 0;
+
+        document
+            .querySelectorAll("[data-color-scheme]")
+            .forEach((el) =>
+                el.setAttribute(
+                    "data-color-scheme",
+                    navBarOddColor ? "odd" : "even"
+                )
+            );
+
         const attrToRemove = navBarOddColor ? "nav-even" : "nav-odd";
         const attrToSet = navBarOddColor ? "nav-odd" : "nav-even";
 
