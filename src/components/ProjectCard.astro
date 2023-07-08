@@ -5,10 +5,11 @@ interface Props {
     name: string;
     year: string;
     link: string;
+    tags: string[];
     description: string;
 }
 
-const { name, year, link, description } = Astro.props;
+const { name, year, link, tags, description } = Astro.props;
 ---
 
 <li max-w="100 @lg:180 @4xl:70" flex="~ col @lg:row @4xl:col" mb="14 @4xl:0">
@@ -22,11 +23,20 @@ const { name, year, link, description } = Astro.props;
     </div>
 
     <div pt="4 @lg:2 @4xl:4">
-        <div flex items-center px="4 @lg:0 @4xl:4" mb-5>
-            <span font-semibold text-xl mr-3>{name}</span>
+        <div flex items-center px="4 @lg:0 @4xl:4" mb-1>
+            <span font-semibold text-lg mr-3>{name}</span>
             <span bg-gray-300 w-1 h-1 rounded-full mr-3></span>
-            <span font-medium text-gray-200 mr-auto>{year}</span>
+            <span text-gray-200 mr-auto>{year}</span>
             <a href={link} target="_blank"><GitHub /></a>
+        </div>
+        <div px="4 @lg:0 @4xl:4" mb-5 flex gap-2>
+            {
+                tags.map((t) => (
+                    <span text="xs teal-200" bg-teal-800 p="x-2 y-1" rounded-md>
+                        {t}
+                    </span>
+                ))
+            }
         </div>
 
         <!-- Project description -->
