@@ -1,3 +1,7 @@
+---
+import me from "../../images/me.jpeg";
+---
+
 <header
 	bg-teal-900
 	text-teal-100
@@ -8,14 +12,22 @@
 	items-center
 >
 	<div
-		relative
 		block
-		min-w-40
-		h-40
-		bg-teal-500
+		max-w-40
+		aspect-square
+		border="3 teal-700"
+		bg="teal-700/50"
 		rounded-lg
-		after="block absolute top-4 right-4 w-full h-full border-2 border-solid border-teal-600 rounded-lg"
 	>
+		<img
+			src={me}
+			alt="Haziq Hairil"
+			width="160"
+			rounded-lg
+			border="3 teal-600"
+			relative
+			rotate--10
+		/>
 	</div>
 	<h1 text="3xl sm:4xl md:5xl center md:right" font="bold">
 		Hi, I&rsquo;m <span text-teal-400>Haziq</span>,<br />and I love
