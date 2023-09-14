@@ -3,12 +3,8 @@ import Signature from "../svg/Signature.astro";
 import NavItem from "../NavItem.astro";
 ---
 
-<div nav-even>
-    <!-- This is here so UnoCSS generates the nav-even style -->
-</div>
-
 <nav
-    nav-odd
+    bg-teal-900
     sticky
     top-0
     z-1
@@ -16,7 +12,6 @@ import NavItem from "../NavItem.astro";
     items-center
     justify-between
     p="x-10 y-3"
-    transition-all
 >
     <a href="#">
         <Signature />
@@ -50,62 +45,3 @@ import NavItem from "../NavItem.astro";
     */
     }
 </nav>
-
-<script>
-    let scrollThrottled = false;
-
-    function handleScroll() {
-        const sections = [
-            "learning",
-            "projects",
-            "competitions",
-            "service",
-            "leadership",
-        ];
-
-        let closestValidOffset = -Infinity;
-        let closestValidSectionIndex = 0;
-
-        for (let i = 0; i < sections.length; i++) {
-            // Get the distance between the top of the
-            // element with the ID and the top of the screen
-            const offset = Math.round(
-                document.getElementById(sections[i])!.getBoundingClientRect()
-                    .top
-            );
-
-            if (offset <= 0 && offset > closestValidOffset) {
-                closestValidOffset = offset;
-                closestValidSectionIndex = i + 1;
-            }
-        }
-
-        const navBarOddColor = closestValidSectionIndex % 2 == 0;
-
-        document
-            .querySelectorAll("[data-color-scheme]")
-            .forEach((el) =>
-                el.setAttribute(
-                    "data-color-scheme",
-                    navBarOddColor ? "odd" : "even"
-                )
-            );
-
-        const attrToRemove = navBarOddColor ? "nav-even" : "nav-odd";
-        const attrToSet = navBarOddColor ? "nav-odd" : "nav-even";
-
-        document.querySelectorAll(`[${attrToRemove}]`).forEach((el) => {
-            el.removeAttribute(attrToRemove);
-            el.setAttribute(attrToSet, "");
-        });
-
-        scrollThrottled = false;
-    }
-
-    window.addEventListener("scroll", () => {
-        if (!scrollThrottled) {
-            scrollThrottled = true;
-            setTimeout(handleScroll, 200);
-        }
-    });
-</script>
